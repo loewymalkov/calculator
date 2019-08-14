@@ -1,27 +1,30 @@
 
-//functions for calculator
+//back-end logic - the business
 var add = function(num1, num2) {
  return num1 + num2;
 };
 
-var remainder = function(num1, num2) {
+var subtract = function(num1, num2) {
   return num1 - num2;
 };
 
-var divTwo = function(num1, num2) {
-return num1/num2;
-};
-
-var twoTimes = function(num1, num2) {
+var multiply = (num1, num2) => {
   return num1 * num2;
 };
 
-//prompts for calculator
-var num1 = parseInt(prompt('Enter a number:'));
-var num2 = parseInt(prompt('Enter another number:'));
+var divide = function(num1, num2) {
+return num1/num2;
+};
 
-//messages for calculator
-alert("add = " + add(num1, num2));
-alert("minus = " + remainder(num1, num2));
-alert("divide = " + divTwo(num1, num2));
-alert("multiply = " + twoTimes(num1, num2));
+// front end logic - user interface
+
+$(document).ready(function() {
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    var num1 = parseInt($("#add1").val());
+    var num2 = parseInt($("#add2").val());
+    var result = add(num1, num2);
+
+    $("#output").text(result);
+  });
+});
